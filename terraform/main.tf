@@ -26,8 +26,10 @@ dynamic "ingress" {
   }
 }
 
-
+### Authentication Token: thisisjenkins
 # Create EC2 Instance
+### sudo su - jenkins -s /bin/bash
+
 resource "aws_instance" "jenkins_server" {
   ami           = var.ami
   instance_type = var.instance_type
