@@ -26,6 +26,8 @@ dynamic "ingress" {
   }
 }
 
+
+## https://dev.to/kelvinskell/advanced-end-to-end-devops-project-deploying-a-microservices-app-to-aws-eks-using-terraform-helm-jenkins-and-argocd-part-i-3a53
 ### Authentication Token: thisisjenkins
 # Create EC2 Instance
 ### sudo su - jenkins -s /bin/bash
