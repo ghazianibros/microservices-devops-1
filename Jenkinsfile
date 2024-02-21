@@ -3,22 +3,22 @@ pipeline {
     
     stages{
         stage('SCA with OWASP Dependency Check') {
-        steps {
-            dependencyCheck additionalArguments: '''--format HTML
-            ''', odcInstallation: 'DP-Check'
-            }
+            steps {
+                dependencyCheck additionalArguments: '''--format HTML
+                ''', odcInstallation: 'DP-Check'
+                }
     }
 
         stage('SonarQube Analysis') {
-      steps {
-        script {
-          // requires SonarQube Scanner 2.8+
-          scannerHome = tool 'SonarScanner'
-        }
-        withSonarQubeEnv('Sonarqube Server') {
-          sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=newsread-microservice-application"
-        }
-      }
+            steps {
+                script {
+                // requires SonarQube Scanner 2.8+
+                scannerHome = tool 'SonarScanner'
+                }
+                withSonarQubeEnv('Sonarqube Server') {
+                sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=newsread-microservice-application"
+                }
+            }
     }
 
         stage('Build Docker Images') {
